@@ -1,3 +1,12 @@
+#' Title
+#'
+#' @param type_well
+#' @param rep
+#'
+#' @return
+#' @export
+#'
+#' @examples
 create_treatment <- function(type_well, rep) {
 
   plate_trt <- paste("trt", rep(seq(1:(well[[type_well]][['n']]/rep)), rep), sep = "_")

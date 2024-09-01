@@ -1,23 +1,14 @@
-
-well <- list(
-          well6 = list(r = 2, b = 3, n = 6),
-          well24 = list(r = 4, b = 6, n = 24),
-          well48 = list(r = 6, b = 8, n = 48),
-          well96 = list(r = 8, b = 12, n = 96),
-          well384 = list(r = 16, b = 24, n = 384)
-          )
-
-order <- c("row_wise", "col_wise", "random")
-
-create_treatment <- function(type_well, rep) {
-
-  plate_trt <- paste("trt", rep(seq(1:(well[[type_well]][['n']]/rep)), rep), sep = "_")
-  extra <- well[[type_well]][['n']] - length(plate_trt)
-  plate_trt <- c(plate_trt, rep("empty", times = extra))
-
-  return(plate_trt)
-}
-
+#' Title
+#'
+#' @param type_well
+#' @param treatments
+#' @param rep
+#' @param order
+#'
+#' @return
+#' @export
+#'
+#' @examples
 create_template <- function(type_well, treatments = NULL, rep = 1, order = "row_wise") {
 
   plate_row <- LETTERS[1 : well[[type_well]][['r']]]
